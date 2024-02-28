@@ -1,0 +1,16 @@
+{
+    "plugins": {
+        "wordpress.org": [
+            "ilab-media-tools",
+        ],
+        "github":[
+            "username/plugin-repo.git",
+        ]
+    },
+    "themes": {
+        "wordpress.org": [
+          "twentytwentyfour"
+        ],
+        "github": ["username/theme-repo/releases/download/{version}/build-name.zip"]
+    }
+}
