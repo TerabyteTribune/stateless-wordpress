@@ -1,13 +1,13 @@
 # Stateless Wordpress
 Custom Docker container image for deploying our wordpress instance with no local storage.
 
-This repository is public so others can reuse the code for their own instances. However, built images are kept private because they contain proprietary code.
+This repository is a public mirror of the applicable files from our internal build tools, so others can reuse the code for their own instances. However, no development takes place in this repo.
 
 ## Usage
 ### Configure
 Modify `config.json` to include the themes and plugins you'd like to install. In both themes and plugins, `"wordpress.org"` should contain a list of slugs from the appropriate WordPress repo. `"github"` should contain a GitHub repository, in the form `org/repo`, followed by a suffix to determine how to download it. For example, `org/repo.git` will clone the GitHub repository, while `org/repo/filename.zip` will download a build artifact called `filename.zip` from the latest release.
 
-### Build
+### Local Build
 Create a file called `.GITHUB_TOKEN` which contains only a GitHub Personal Access Token with access to repos you have configured to include in your image.
 
 Then, run the following command to build your image.
@@ -15,7 +15,7 @@ Then, run the following command to build your image.
 docker buildx build --secret id=GITHUB_TOKEN,src=./.GITHUB_TOKEN .
 ```
 
-#### Auto-build using GitHub Actions
+### Auto-build using GitHub Actions
 The container is automatically built and pushed to Dockerhub at the 'latest' tag via Github Actions. That workflow requires the following GitHub Actions secrets:
 - `DOCKERHUB_USERNAME`: The username of the DockerHub account to push the image to.
 - `DOCKERHUB_TOKEN`: An API key for the above DockerHub user.
