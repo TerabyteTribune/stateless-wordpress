@@ -1,8 +1,6 @@
 # Stateless Wordpress
 Custom Docker container image for deploying our wordpress instance with no local storage.
 
-This repository is a public mirror of the applicable files from our internal build tools, so others can reuse the code for their own instances. However, no development takes place in this repo.
-
 ## Usage
 ### Configure
 Modify `config.json` to include the themes and plugins you'd like to install. In both themes and plugins, `"wordpress.org"` should contain a list of slugs from the appropriate WordPress repo. `"github"` should contain a GitHub repository, in the form `org/repo`, followed by a suffix to determine how to download it. For example, `org/repo.git` will clone the GitHub repository, while `org/repo/filename.zip` will download a build artifact called `filename.zip` from the latest release.
